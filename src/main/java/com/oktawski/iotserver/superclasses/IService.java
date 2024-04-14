@@ -38,7 +38,7 @@ public interface IService <T extends WifiDevice>{
         if (user != null) {
             return user;
         } else {
-            throw new UsernameNotFoundException("User with such username does not exist");
+            throw new UsernameNotFoundException("User with such username does not exist:"+user);
         }
     }
 

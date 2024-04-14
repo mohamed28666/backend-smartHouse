@@ -50,7 +50,7 @@ public class JwtVerifyFilter extends OncePerRequestFilter {
                 var body = claimsJws.getBody();
                 var username = body.getSubject();
                 List<Map<String, String>> authorities = (List<Map<String, String>>) body.get("authorities");
-
+                System.out.print("body:"+body);
                 Set<SimpleGrantedAuthority> authoritySet = authorities.stream()
                         .map(v -> new SimpleGrantedAuthority(v.get("authority")))
                         .collect(Collectors.toSet());
@@ -62,6 +62,7 @@ public class JwtVerifyFilter extends OncePerRequestFilter {
 
             }
             catch(JwtException e){
+            	 System.out.print("body:"+e);
                 throw new IllegalStateException("Token cannot be trusted");
             }
 

@@ -91,7 +91,7 @@ public class LightService extends DeviceService<Light> implements IService<Light
     @Override
     public Optional<List<Light>> getAll() {
         var user = getUser(userRepository);
-
+        
         return Optional.of(lightRepository.getLightsByUserIdOrderById(user.getId()));
     }
 
